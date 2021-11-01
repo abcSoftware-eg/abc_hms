@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+     <record model="ir.ui.view" id="abc_hms_list">
+      <field name="name">abc_hms.appointments.list</field>
+      <field name="model">abc_hms.appointments</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="doctor_id"/>
+          <field name="patient_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="abc_hms.action_window">
+      <field name="name">abc_hms window</field>
+      <field name="res_model">abc_hms.appointments</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+ <!-- Top menu item -->
+ <menuitem id="menu_abc_hms"
+             name="abc hms"
+   />
+ <menuitem id="menu_appointments"
+             name="appointments"
+             parent="menu_abc_hms"
+              action="abc_hms.action_window"
+   />
+
+  </data>
+</odoo>

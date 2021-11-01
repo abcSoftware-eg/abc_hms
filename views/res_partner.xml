@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+           <record id="res_partner_inherit_form_health_center_view" model="ir.ui.view">
+            <field name="name">res.partner.inherit.form.health.center.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="function" position="after">
+                    <field name="id_national" />
+                </field>
+                <notebook>
+                    <page string="Medical">
+                        <group colspan="6" col="6">
+                            <field name="is_doctor" />
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+  <record model="ir.actions.act_window" id="act_res_partner">
+            <field name="name">Doctor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_doctor','=',1)]</field>
+            <field name="context">{'default_is_doctor': 1,'search_default_is_doctor': 1}
+            </field>
+  </record>
+
+         <menuitem id="menu_Doctors" name="Doctors"
+            parent="menu_abc_hms" />
+        <menuitem id="menu_insurance" name="Insurances"
+                   parent="menu_Doctors" sequence='9'
+                   action="act_res_partner" />
+
+  </data>
+</odoo>
