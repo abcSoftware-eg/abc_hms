@@ -7,3 +7,4 @@ class ResPartner(models.Model):
 
     id_national = fields.Char('National id',size = 14)
     is_doctor = fields.Boolean(string="is a doctor ", default=False, help="If set, the .")
+

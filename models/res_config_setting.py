@@ -15,6 +15,11 @@ class ResConfigSettings(models.TransientModel):
         res.update(
             abc_field=abc_field
         )
+
+        #products = self.env['product.template'].search([])
+        #for product in products:
+        #    product.categ_id = 4
+
         return res
 
     @api.model

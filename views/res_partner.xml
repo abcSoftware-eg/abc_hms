@@ -18,7 +18,7 @@
             </field>
         </record>
 
-  <record model="ir.actions.act_window" id="act_res_partner">
+  <record model="ir.actions.act_window" id="act_res_partner_doctor">
             <field name="name">Doctor</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
@@ -29,11 +29,23 @@
             </field>
   </record>
 
-         <menuitem id="menu_Doctors" name="Doctors"
+  <record model="ir.actions.act_window" id="act_res_partner_patient">
+            <field name="name">Patient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="domain">[('is_doctor','=',0)]</field>-->
+            <field name="context">{'default_is_doctor': 0,'search_default_is_doctor': 0}</field>
+  </record>
+         <menuitem id="menu_configuration" name="configuration"
             parent="menu_abc_hms" />
-        <menuitem id="menu_insurance" name="Insurances"
-                   parent="menu_Doctors" sequence='9'
-                   action="act_res_partner" />
+        <menuitem id="menu_Doctor" name="Doctor"
+                   parent="menu_configuration" sequence='9'
+                   action="act_res_partner_doctor" />
+        <menuitem id="menu_Patient" name="Patient"
+                   parent="menu_configuration" sequence='10'
+                   action="act_res_partner_patient" />
 
   </data>
 </odoo>

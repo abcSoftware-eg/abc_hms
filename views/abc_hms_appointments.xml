@@ -4,9 +4,9 @@
       <field name="name">abc_hms.appointments.list</field>
       <field name="model">abc_hms.appointments</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree editable="bottom" >
           <field name="date"/>
-          <field name="doctor_id"/>
+          <field name="doctor_id" domain="[('is_doctor', '=',True )]" context="{'default_is_doctor': 1,'search_default_is_doctor': 1}"/>
           <field name="patient_id"/>
         </tree>
       </field>
@@ -15,7 +15,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="abc_hms.action_window">
-      <field name="name">abc_hms window</field>
+      <field name="name">appointment</field>
       <field name="res_model">abc_hms.appointments</field>
       <field name="view_mode">tree,form</field>
     </record>

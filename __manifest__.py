@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','stock'],
 
     # always loaded
     'data': [
@@ -30,6 +30,7 @@
         'views/res_partner.xml',
         'views/abc_hms_appointments.xml',
         'views/res_config_setting.xml',
+        'views/product_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

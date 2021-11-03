@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+  <record model="ir.actions.act_window" id="product_medicine_action">
+      <field name="name">medicine</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="domain">[('categ_id','=',4)]</field>
+      <field name="context">{'default_categ_id': 4,'search_default_categ_id': 4}</field>
+      <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new medicine
+            </p>
+      </field>
+    </record>
+
+     <menuitem id="menu_medicine"
+             name="medicine"
+             parent="menu_configuration"
+              action="product_medicine_action"
+    />
+  </data>
+</odoo>
