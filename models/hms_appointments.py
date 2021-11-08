@@ -2,7 +2,8 @@
 
 from odoo import models, fields, api
 
-class  hms_appointments(models.Model):
+
+class HmsAppointments(models.Model):
     _name = 'abc_hms.appointments'
     _description = 'abc_hms.appointments'
 

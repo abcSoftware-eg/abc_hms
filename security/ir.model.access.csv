@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_abc_hms_appointments,abc_hms.appointments,model_abc_hms_appointments,base.group_user,1,1,1,1
+access_abc_hms_patient,abc_hms.patient,model_abc_hms_patient,base.group_user,1,1,1,1
+access_medical_patient_disease,medical.patient.disease,model_medical_patient_disease,base.group_user,1,1,1,1
+access_medical_vaccination,medical.vaccination,model_medical_vaccination,base.group_user,1,1,1,1
+

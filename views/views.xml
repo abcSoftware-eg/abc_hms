@@ -1,5 +1,7 @@
 <odoo>
   <data>
+
+
     <!--<menuitem name="abc_appointments" id="abc_hms.menu_root"/>-->
 
     <!-- explicit list view definition -->

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="medical_patients_form_view" model="ir.ui.view">
+            <field name="name">medical.patients.form.view</field>
+            <field name="model">abc_hms.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+<!--                    <header>-->
+<!--                        <button name="print_report" type="object"-->
+<!--                            string="Print Patient Card" class="oe_highlight" />-->
+<!--                    </header>-->
+                    <sheet>
+
+                        <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="patient_id" />
+                            </div>
+                            <h1>
+                                <field style="width: 30%%" name="patient_id"
+                                    default_focus="1" placeholder="Patient Name"
+                                     />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_of_birth" />
+                                <field name="marital_status" />
+                            </group>
+                            <group>
+                                <field name="sex" />
+                                <field name="age" readonly="1" />
+                                <field name="partner_address_id" />
+                            </group>
+                        </group>
+                        <group>
+                            <separator colspan="4"
+                                string="Patient Critical Information" />
+                            <newline />
+                            <field colspan="6" name="critical_info"
+                                nolabel="1" />
+                        </group>
+                        <notebook>
+                            <page string="General Information">
+                                <group string="Patient General Information">
+                                    <group>
+                                        <field name="blood_type" />
+                                        <field name="current_insurance_id" />
+                                    </group>
+                                    <group>
+                                        <field name="rh" />
+                                        <field
+                                            name="primary_care_physician_id" />
+                                    </group>
+                                </group>
+
+                                <group colspan="4"
+                                    string="Patient Extra Information">
+                                    <field colspan="4" name="general_info"
+                                        nolabel="1" />
+                                    <newline />
+                                    <group>
+                                        <field name="deceased" />
+                                        <field name="date_of_death"
+                                            attrs="{'invisible':[('deceased','=',False)],'required':[('deceased','=',1)]}" />
+                                        <field name="cause_of_death"
+                                            attrs="{'invisible':[('deceased','=',False)]}" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Diseases">
+                                <field name="patient_disease_ids"
+                                    nolabel="1" widget="one2many_list" />
+                            </page>
+
+                            <page string="Vaccinations">
+                                <group colspan="4">
+                                    <field name="medical_vaccination_ids"
+                                        nolabel="1">
+                                        <tree>
+                                            <field name="vaccine_product_id" />
+                                            <field name="dose" />
+                                            <field name="date" />
+                                            <field name="observations" />
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="medical_patients_tree_view" model="ir.ui.view">
+            <field name="name">medical.patients.tree.view</field>
+            <field name="model">abc_hms.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Information">
+                    <field name="patient_id" />
+                    <field name="sex" />
+                    <field name="date_of_birth" />
+                    <field name="primary_care_physician_id" />
+                    <field name="deceased" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_medical_patient" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">abc_hms.patient</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="menu_Patient" name="Patient"
+                   parent="menu_configuration" sequence='10'
+                   action="action_medical_patient" />
+
+<!--        <act_window id="action_view_priscription_id2" name="Prescription Orders"-->
+<!--            res_model="medical.prescription.order" binding_model="medical.patient"-->
+<!--            view_mode="tree" domain="[('patient_id', '=', active_id)]" />-->
+
+<!--        <act_window id="action_view_lab_id" name="Lab Reports"-->
+<!--            res_model="medical.lab" binding_model="medical.patient"-->
+<!--            view_mode="tree,form" domain="[('patient_id', '=', active_id)]" />-->
+
+<!--        <act_window id="action_psc_id" name="PSC"-->
+<!--            res_model="medical.patient.psc" binding_model="medical.patient"-->
+<!--            view_mode="tree,form" domain="[('patient_id', '=', active_id)]" />-->
+
+</odoo>

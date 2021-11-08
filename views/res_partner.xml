@@ -8,10 +8,19 @@
                 <field name="function" position="after">
                     <field name="id_national" />
                 </field>
-                <notebook>
+              <notebook>
                     <page string="Medical">
                         <group colspan="6" col="6">
                             <field name="is_doctor" />
+                        </group>
+                    </page>
+
+                </notebook>
+
+
+                <notebook >
+                    <page string="Doctor" attrs="{'invisible':[('is_doctor','=',False)]}" >
+                        <group colspan="6" col="6">
                         </group>
                     </page>
                 </notebook>
@@ -43,9 +52,9 @@
         <menuitem id="menu_Doctor" name="Doctor"
                    parent="menu_configuration" sequence='9'
                    action="act_res_partner_doctor" />
-        <menuitem id="menu_Patient" name="Patient"
-                   parent="menu_configuration" sequence='10'
-                   action="act_res_partner_patient" />
+<!--        <menuitem id="menu_Patient" name="Patient"-->
+<!--                   parent="menu_configuration" sequence='10'-->
+<!--                   action="act_res_partner_patient" />-->
 
   </data>
 </odoo>

@@ -20,18 +20,22 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','stock'],
+    'depends': ['base', 'stock', 'sale'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/res_partner.xml',
         'views/abc_hms_appointments.xml',
         'views/res_config_setting.xml',
+        'views/res_partner.xml',
         'views/product_template.xml',
-    ],
+        'views/sale_order.xml',
+        'views/patient.xml',
+        'views/medical_patient_disease.xml',
+        'views/medical_vaccination.xml',
+        ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

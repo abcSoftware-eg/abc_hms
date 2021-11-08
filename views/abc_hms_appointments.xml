@@ -24,11 +24,11 @@
  <menuitem id="menu_abc_hms"
              name="abc hms"
    />
- <menuitem id="menu_appointments"
+ <!--<menuitem id="menu_appointments"
              name="appointments"
              parent="menu_abc_hms"
               action="abc_hms.action_window"
-   />
+   />-->
 
   </data>
 </odoo>
