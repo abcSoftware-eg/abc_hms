@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import date,datetime
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -20,10 +21,8 @@ class ResPartner(models.Model):
 
     date_of_birth = fields.Date(string="Date of Birth")
     age = fields.Char(compute=onchange_age, string="Patient Age", store=True)
-    id_national = fields.Char('National id',size = 14)
-
+    national_id = fields.Char('National id', size=14)
+    _sql_constraints = [('national_id_unique', 'unique (national_id)', "National ID already exists!"), ]
 
     # medical
     is_doctor = fields.Boolean(string="Doctor ", default=False, help="If set, the .")
-    is_patient = fields.Boolean(string="Patient", default=False, help="If set, the .")
-

@@ -28,7 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/abc_hms_appointments.xml',
-        'views/res_config_setting.xml',
+        'views/res_config_settings.xml',
         'views/res_partner.xml',
         'views/product_template.xml',
         'views/sale_order.xml',
